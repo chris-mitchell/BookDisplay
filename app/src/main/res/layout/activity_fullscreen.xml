@@ -6,7 +6,7 @@
     android:background="@android:color/white"
     tools:context="com.cmitchell687.books.app.activities.FullscreenActivity">
 
-    <fragment
+    <ListFragment
         android:id="@+id/listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
