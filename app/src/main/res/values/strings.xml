@@ -1,9 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Books App</string>
 
-    <string name="app_name">BookSampleApp</string>
-
-    <string name="content_description_book_image">Book Image</string>
-    <string name="list_view_empty_data">The results were empty</string>
-
+    <string name="book_cover">Book Cover</string>
+    <string name="error_message">Oh no! We\'ve had an error, please try again.</string>
 </resources>
