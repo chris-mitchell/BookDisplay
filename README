@@ -1,3 +1,0 @@
-This is is a sample project to test some basic networking calls, and display the response in a simple list view. 
-
-The file books.json must be hosted, and the producer Books.java must have the field PATH modified to point to this endpoint for the app to behave correctly.   

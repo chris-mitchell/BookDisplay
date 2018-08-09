@@ -1,8 +1,48 @@
-.gradle
-/local.properties
 .DS_Store
-build
-out
-.idea
+
+# Build generated
+build/
+DerivedData/
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+Ignore build files
+build/
+bin/
+gen/
+
+#Ignore OSX Noise
+.DS_Store
+
+local.properties
+
+# IDEA/Android Studio ignores
 *.iml
-classes
+*.ipr
+*.iws
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+**/.idea/datasources.xml
+**/.idea/dataSources.ids
+**/.idea/gradle.xml
+**/.idea/misc.xml
+**/.idea/modules.xml
+**/.idea/libraries
+**/.idea/dictionaries
+
+# Gradle
+.gradle
