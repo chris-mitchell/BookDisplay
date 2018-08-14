@@ -1,42 +1,32 @@
-package com.possible.core.di.modules;
-
-import android.app.Application;
+package com.possible.myapplication.di.modules;
 
 import com.possible.core.data.Webservice;
-
-import javax.inject.Singleton;
+import com.possible.myapplication.di.scopes.PerApplication;
 
 import dagger.Module;
 import dagger.Provides;
-import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
-public class DataModule {
-
-    private String baseUrl;
-
-    public DataModule(String baseUrl) {
-        this.baseUrl = baseUrl;
-    }
+public class ApplicationModule {
 
     @Provides
-    @Singleton
-    Retrofit provideRetrofit(Application application) {
+    @PerApplication
+    Retrofit provideRetrofit() {
 
         OkHttpClient client = new OkHttpClient();
 
         return new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl("https://de-coding-test.s3.amazonaws.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
     }
 
     @Provides
-    @Singleton
+    @PerApplication
     Webservice providesWebservice(Retrofit retrofit) {
         return retrofit.create(Webservice.class);
     }

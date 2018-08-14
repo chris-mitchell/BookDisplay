@@ -19,7 +19,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-@Singleton
 public class BooksRepository {
     private static final String TAG = BooksRepository.class.getName();
 

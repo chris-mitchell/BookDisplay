@@ -23,17 +23,11 @@ import javax.inject.Inject;
 
 public class BooksViewModel extends ViewModel {
 
-    @Inject
-    public BooksRepository booksRepository;
-
+    private BooksRepository booksRepository;
     private LiveData<Resource<List<Book>>> books;
 
-    public BooksViewModel() {
-        init();
-    }
-
-    private void init() {
-        BookApp.getComponent().inject(this);
+    public BooksViewModel(BooksRepository booksRepository) {
+        this.booksRepository = booksRepository;
     }
 
     @NonNull

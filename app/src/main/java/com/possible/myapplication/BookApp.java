@@ -1,28 +1,33 @@
 package com.possible.myapplication;
 
+import android.app.Activity;
 import android.app.Application;
 
-import com.possible.myapplication.di.components.DaggerUiComponent;
-import com.possible.myapplication.di.components.UiComponent;
-import com.possible.myapplication.di.modules.AppModule;
-import com.possible.core.di.modules.DataModule;
+import com.possible.myapplication.di.DaggerApplicationComponent;
 
-public class BookApp extends Application {
+import javax.inject.Inject;
 
-    private static UiComponent component;
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasActivityInjector;
+
+public class BookApp extends Application implements HasActivityInjector {
+
+    @Inject
+    DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        component = DaggerUiComponent.builder()
-                .appModule(new AppModule(this))
-                .dataModule(new DataModule("https://de-coding-test.s3.amazonaws.com/"))
-                .build();
-
+        DaggerApplicationComponent.builder()
+                .application(this)
+                .build()
+                .inject(this);
     }
 
-    public static UiComponent getComponent() {
-        return component;
+    @Override
+    public AndroidInjector<Activity> activityInjector() {
+        return activityDispatchingAndroidInjector;
     }
 }
