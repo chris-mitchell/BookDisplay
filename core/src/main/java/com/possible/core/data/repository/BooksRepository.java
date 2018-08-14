@@ -31,7 +31,7 @@ public class BooksRepository {
         this.webservice = webservice;
     }
 
-    public LiveData<Resource<List<Book>>> getBooks() {
+    public MutableLiveData<Resource<List<Book>>> getBooks() {
         if (data.getValue() == null) {
             Resource<List<Book>> resource = new Resource<>(Status.LOADING);
             data.setValue(resource);
